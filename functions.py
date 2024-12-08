@@ -80,7 +80,7 @@ def bd_save(df, path_db, table_name, base, stage):
     try:
         with sqlite3.connect(path_db) as conn:
             df.to_sql(table_name, conn, if_exists='replace', index=False)
-        print(f"Data salvo com sucesso na tabela '{
+        print(f"Dados importados com sucesso na tabela '{
             table_name}' do banco '{path_db}'")
     except sqlite3.Error as e:
         alert(level=3, base=base, stage=stage)
