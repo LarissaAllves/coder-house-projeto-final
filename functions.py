@@ -7,8 +7,6 @@ import requests
 from datetime import datetime
 import sqlite3
 
-# alert
-
 
 def alert(level, base, stage):
 
@@ -30,8 +28,6 @@ def alert(level, base, stage):
         app_name="Rick and Morty API",
         timeout=10
     )
-
-# cat api
 
 
 def get_data_api(url, base, stage):
@@ -59,8 +55,6 @@ def replace_urls_with_names(df, url_column, name_column, urls):
     return [url_to_name.get(url, "Unknown") for url in urls]
 
 
-# Função para listar as tabelas do banco de dados
-
 def list_tables_bd(path_db, base, stage):
     try:
         with sqlite3.connect(path_db) as conn:
@@ -73,8 +67,6 @@ def list_tables_bd(path_db, base, stage):
         return None
 
 
-# Função para salvar um dataframe no banco de dados
-
 def bd_save(df, path_db, table_name, base, stage):
 
     try:
@@ -86,8 +78,6 @@ def bd_save(df, path_db, table_name, base, stage):
         alert(level=3, base=base, stage=stage)
         print(f"Erro ao acessar a API: {e}")
         return None
-
-# carregar bd
 
 
 def load_bd(table_name, path_db, base, stage):
