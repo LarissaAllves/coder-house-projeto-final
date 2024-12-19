@@ -59,6 +59,16 @@ pip freeze
 ## Abra o arquivo rick_and_morty.ipynb e explore
 ```
 
+⚙️ Funções
+
+- **`/alert/`**: Usada para gerar a notificação
+- **`/get_data_api/`**: Fazer a requisição pra pegar os dados da api
+- **`/convert_date/`**: Usada para converter a data pro formato dd/mm/yyyy
+- **`/replace_urls_with_names/`**: Usada para criar um dicionário e subistituir as urls pelos nomes dos personagens
+- **`/bd_save/`**: Salvar no banco de dados
+- **`/list_tables_bd/`**: Listar as tabelas do banco
+- **`/load_bd/`**: Carregar o banco de dados
+
 ## 🧵 Tratamento e Análise dos Dados
 
 ### 📊 **Exemplo do DataFrame `Characters`**
@@ -117,6 +127,45 @@ pip freeze
 5. **Exclusão das Colunas Desnecessárias**
    - As colunas `origin`, `location`, `created` e `episode` foram removidas
 
+### 📊 **Exemplo do DataFrame `Characters` após o tratamento dos dados**
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Species</th>
+            <th>Type</th>
+            <th>Gender</th>
+            <th>Image</th>
+            <th>Character URL</th>
+            <th>Origin Name</th>
+            <th>Origin URL</th>
+            <th>Location Name</th>
+            <th>Location URL</th>
+            <th>Total Episodes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Rick Sanchez</td>
+            <td>Alive</td>
+            <td>Human</td>
+            <td>unknown</td>
+            <td>Male</td>
+            <td>https://rickandmortyapi.com/api/character/avatar/1.jpeg</td>
+            <td>https://rickandmortyapi.com/api/character/1</td>
+            <td>Earth (C-137)</td>
+            <td>https://rickandmortyapi.com/api/location/1</td>
+            <td>Citadel of Ricks</td>
+            <td>https://rickandmortyapi.com/api/location/3</td>
+            <td>51</td>
+        </tr>
+    </tbody>
+</table>
+
 ### 📊 **Exemplo do DataFrame `Locations`**
 
 <table border="1" cellspacing="0" cellpadding="5">
@@ -135,9 +184,9 @@ pip freeze
         <td>Planet</td>
         <td>Dimension C-137</td>
         <td>
-            <{"https://rickandmortyapi.com/api/character/38"}>
+            {"https://rickandmortyapi.com/api/character/38"}
         </td>
-        <td><{"https://rickandmortyapi.com/api/location/1"}</td>
+        <td>"https://rickandmortyapi.com/api/location/1"</td>
         <td>2017-11-10T12:42:04.162Z</td>
     </tr>
 </table>
@@ -158,6 +207,40 @@ pip freeze
 
 4. **Exclusão da Coluna `created`**
    - A coluna `created` foi removida, pois não é necessária para as análises.
+
+### 📊 **Exemplo do DataFrame `Locations` após o tratamento dos dados**
+
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>type</th>
+            <th>dimension</th>
+            <th>residents_name</th>
+            <th>location_url</th>
+            <th>total_residents</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Earth (C-137)</td>
+            <td>Planet</td>
+            <td>Dimension C-137</td>
+            <td>
+                [
+                    "Beth Smith",
+                   " Bill",
+                    "Conroy",
+                    "Cronenberg Rick",
+                ]
+            </td>
+            <td>https://rickandmortyapi.com/api/location/1</td>
+            <td>27</td>
+        </tr>
+    </tbody>
+</table>
 
 ### 📊 **Exemplo do DataFrame `Episodes`**
 
@@ -201,6 +284,40 @@ pip freeze
 
 4. **Criação da Coluna `total_characters_in_the_episode`**
    - Criação da coluna `total_characters_in_the_episode`, contendo o número total de personagens presentes em cada episódio.
+
+### 📊 **Exemplo do DataFrame `Episodes` após o tratamento dos dados**
+
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>air_date</th>
+            <th>episode</th>
+            <th>characters_name</th>
+            <th>episode_url</th>
+            <th>total_characters_in_the_episode</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Pilot</td>
+            <td>02/12/2013</td>
+            <td>S01E01</td>
+            <td>
+            [
+                "Rick Sanchez",
+                "Morty Smith",
+                "Bepisian",
+                "Bepisian Leader"
+            ] 
+            </td>
+            <td>https://rickandmortyapi.com/api/episode/1</td>
+            <td>19</td>
+        </tr>
+    </tbody>
+</table>
 
 ## 🚀 **Conclusão**
 
